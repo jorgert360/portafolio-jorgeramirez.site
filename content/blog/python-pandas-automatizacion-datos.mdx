@@ -1,0 +1,55 @@
+Todos los lunes, alguien en alguna empresa abre cinco archivos de Excel, copia columnas de uno a otro, aplica los mismos filtros de siempre y pega el resultado en un correo. Ese proceso —repetitivo, frágil y aburrido— es el candidato perfecto para Python.
+
+## El costo oculto del "reporte manual"
+
+Un reporte hecho a mano no solo consume tiempo. Consume **confianza**: nadie puede reproducir exactamente cómo se generó, y basta un filtro mal aplicado para tomar una decisión sobre datos equivocados. La meta no es solo ir más rápido, sino hacer el proceso **reproducible y auditable**.
+
+## Pandas en tres movimientos
+
+La mayoría de las automatizaciones de datos caben en tres pasos: leer, transformar y escribir.
+
+```python
+import pandas as pd
+
+# 1. Leer: consolidar varios archivos en un solo DataFrame
+ventas = pd.concat(
+    [pd.read_excel(f) for f in Path("data").glob("ventas_*.xlsx")],
+    ignore_index=True,
+)
+
+# 2. Transformar: limpiar y agregar
+resumen = (
+    ventas
+    .dropna(subset=["region", "monto"])
+    .groupby("region", as_index=False)["monto"]
+    .sum()
+    .sort_values("monto", ascending=False)
+)
+
+# 3. Escribir: entregar el resultado listo para consumir
+resumen.to_excel("resumen_regional.xlsx", index=False)
+```
+
+Lo que antes tomaba una hora ahora corre en segundos y —más importante— corre **igual** cada vez.
+
+## De script a pipeline
+
+Un script suelto es un buen comienzo, pero un pipeline confiable necesita tres cosas más:
+
+- **Validación de entrada.** Antes de procesar, verifica que las columnas existan y los tipos sean correctos. Un `assert` temprano evita un reporte silenciosamente incorrecto.
+- **Idempotencia.** Ejecutarlo dos veces debe dar el mismo resultado, sin duplicar datos.
+- **Registro.** Guarda qué archivos se procesaron y cuándo. Cuando algo salga raro, lo agradecerás.
+
+## El puente con RPA e IA
+
+Aquí es donde la automatización se pone interesante. Ese mismo script de Pandas puede:
+
+- Ser **invocado por un robot de UiPath** que descarga los archivos y dispara el proceso.
+- Alimentar un **modelo o un LLM** que resuma tendencias en lenguaje natural.
+- Exponerse como una **API** para que otros sistemas pidan el reporte bajo demanda.
+
+La automatización deja de ser "un script en mi máquina" y se vuelve una pieza de infraestructura.
+
+## Empieza pequeño
+
+No intentes automatizar todo el departamento el primer día. Toma **el reporte más molesto y repetitivo**, conviértelo en un pipeline reproducible, y deja que el tiempo ahorrado justifique el siguiente. Así se construye impulso —y credibilidad.

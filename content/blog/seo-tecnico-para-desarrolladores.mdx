@@ -1,0 +1,50 @@
+El SEO cambió más en los últimos dos años que en la década anterior. Los buscadores ya no solo rankean enlaces azules: responden preguntas, resumen fuentes y citan sitios dentro de respuestas generadas por IA. Si construyes para la web en 2026, necesitas pensar en tres capas: **rendimiento, estructura y respuestas**.
+
+## Capa 1: rendimiento (Core Web Vitals)
+
+Google sigue midiendo la experiencia real de tus usuarios con tres métricas:
+
+- **LCP** (Largest Contentful Paint) — qué tan rápido aparece el contenido principal. Objetivo: menos de 2.5 s.
+- **INP** (Interaction to Next Paint) — qué tan ágil responde tu interfaz. Objetivo: menos de 200 ms.
+- **CLS** (Cumulative Layout Shift) — cuánto "salta" el layout mientras carga. Objetivo: menos de 0.1.
+
+En la práctica esto significa: imágenes con tamaño reservado, JavaScript diferido, fuentes con `display: swap` y todo lo pesado —como una escena 3D— cargado de forma perezosa y solo cuando hace falta.
+
+## Capa 2: estructura (datos estructurados)
+
+Los buscadores entienden mejor lo que puedes describirles explícitamente. El **JSON-LD de Schema.org** es la forma de hacerlo. Una página de artículo bien marcada incluye su tipo, autor y fecha:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SEO técnico para desarrolladores",
+  "author": { "@type": "Person", "name": "Jorge Ramírez" },
+  "datePublished": "2026-05-12"
+}
+```
+
+Con esto habilitas *rich snippets*, breadcrumbs en los resultados y —cada vez más— elegibilidad para ser citado por motores de respuesta.
+
+## Capa 3: respuestas (AEO y GEO)
+
+Aquí está la frontera nueva.
+
+- **AEO** (Answer Engine Optimization): optimizas para que asistentes e IA generativa usen y citen tu contenido. La clave es responder preguntas concretas de forma concisa, con encabezados claros y bloques de FAQ marcados con `FAQPage`.
+- **GEO** (Generative Engine Optimization): estructuras tu contenido para que un modelo pueda extraer y recombinar tus datos con confianza. Autoridad temática, claridad y consistencia ganan.
+
+> La pregunta ya no es solo "¿puede Google rastrear esto?", sino "¿puede un modelo entenderlo, confiar en ello y citarlo?".
+
+## Una lista de verificación práctica
+
+Antes de publicar, revisa:
+
+- Metadatos únicos por página (`title`, `description`, canonical).
+- OpenGraph y Twitter Cards para que se vea bien al compartir.
+- `sitemap.xml` y `robots.txt` generados automáticamente.
+- JSON-LD de `Person`, `WebSite`, `Article` y `FAQPage` donde aplique.
+- Core Web Vitals en verde en móvil, no solo en escritorio.
+
+## El resumen
+
+El buen SEO técnico de 2026 es, en el fondo, buena ingeniería: un sitio rápido, semántico y honesto con lo que ofrece. Optimiza para las personas y para las máquinas que ahora las representan, y el ranking llega como consecuencia.

@@ -1,0 +1,43 @@
+Automatizar un proceso no es grabar clics. Es diseñar un sistema que otras personas puedan operar, monitorear y mantener durante años. Por eso, cuando alguien me pregunta por dónde empezar en UiPath, mi respuesta siempre es la misma: **aprende ReFramework desde el primer día**.
+
+## Por qué ReFramework y no un flujo lineal
+
+Un `Sequence` con veinte actividades funciona en la demo y colapsa en producción. El **Robotic Enterprise Framework** resuelve los tres problemas que de verdad importan cuando un robot corre sin supervisión:
+
+- **Transaccionalidad**: cada elemento de trabajo se procesa de forma aislada. Si el ítem 47 falla, los 46 anteriores ya están hechos.
+- **Manejo de excepciones**: distingue entre errores de negocio (dato inválido) y errores del sistema (una app que no abrió), y reacciona distinto a cada uno.
+- **Recuperación**: reintentos configurables y un estado inicial que deja todo limpio antes de empezar.
+
+## La anatomía de un robot mantenible
+
+ReFramework es una máquina de estados con cuatro fases. Piénsalo como un ciclo:
+
+1. **Initialize** — lee la configuración, abre las aplicaciones.
+2. **Get Transaction Data** — obtiene el siguiente ítem (de una cola de Orchestrator, un Excel o una base de datos).
+3. **Process Transaction** — la lógica de negocio real.
+4. **End Process** — cierra todo con elegancia.
+
+El corazón está en separar la **configuración** del **código**. Tus rutas, credenciales y reglas viven en `Config.xlsx`, no incrustadas en el flujo:
+
+```vb
+' Leer un valor de configuración en lugar de escribirlo a mano
+in_TransactionItem = Config("QueueName").ToString
+```
+
+## Colas: el patrón que lo cambia todo
+
+En cuanto un proceso maneja volumen, mueve el trabajo a una **cola de Orchestrator**. Ganas reintentos automáticos, procesamiento en paralelo con varios robots y una auditoría transaccional gratis.
+
+> Regla práctica: si el proceso maneja más de un puñado de ítems al día, empieza con colas. Migrar después duele.
+
+## Errores que vas a cometer (y cómo evitarlos)
+
+- **No capturar el estado de las apps.** Si el robot asume que Chrome ya está abierto, fallará. Verifica siempre.
+- **Tratar toda excepción igual.** Un dato mal escrito no debe reintentarse seis veces: es un error de negocio, márcalo y sigue.
+- **Olvidar el logging.** Cada transacción debe dejar rastro. En banca, la trazabilidad *es* el producto.
+
+## El siguiente paso
+
+Cuando tu robot ya procesa una cola con manejo de excepciones y logs claros, estás listo para lo difícil: integrarlo con APIs, orquestar varios procesos y desplegarlo desatendido. Pero eso ya es otra historia —y otro artículo.
+
+Si estás automatizando tu primer proceso y te atascas, [escríbeme](/#contact): probablemente ya me topé con ese error.

@@ -1,0 +1,75 @@
+Si estás evaluando tecnología para optimizar tu empresa, probablemente has escuchado dos términos que parecen intercambiables pero no lo son: **RPA** (Robotic Process Automation) e **Inteligencia Artificial**. Entender la diferencia —y saber cuándo usar cada uno— puede ahorrarte meses de desarrollo y millones en inversión.
+
+## La forma más simple de entenderlo
+
+**RPA es un robot que hace exactamente lo que le dices.** Sigue reglas, respeta horarios y nunca se equivoca, pero no "piensa". Es como un asistente meticuloso que ejecuta una receta al pie de la letra todos los días.
+
+**IA es un sistema que aprende, predice y recomienda.** No sigue instrucciones fijas; analiza datos, identifica patrones y toma decisiones basadas en probabilidades. Es como un analista que revisa miles de datos y te dice "esto es lo que deberíamos hacer".
+
+La tabla de abajo lo resume:
+
+| Característica | RPA (UiPath) | IA (Machine Learning) |
+|---|---|---|
+| **Entrada** | Datos estructurados (Excel, formularios, ERP) | Datos estructurados y no estructurados (imágenes, texto, audio) |
+| **Lógica** | Reglas fijas definidas por el desarrollador | Modelo entrenado con datos históricos |
+| **Salida** | Acción automatizada (click, escribir, extraer) | Predicción, clasificación, recomendación |
+| **Excepciones** | Requiere manejo explícito (Try/Catch) | Puede manejar variaciones no previstas |
+| **Mantenimiento** | Bajo si los sistemas no cambian | Requiere re-entrenamiento periódico |
+| **Ejemplo** | Robot que extrae facturas y las carga en SAP | Modelo que predice qué facturas tienen errores |
+
+## ¿Cuál necesitas para tu empresa?
+
+La respuesta corta: **depende del problema que quieras resolver**.
+
+### Elige RPA cuando:
+
+- Tienes procesos repetitivos basados en reglas fijas
+- Los datos son estructurados y vienen de fuentes conocidas
+- Necesitas reducir errores humanos y liberar tiempo de tu equipo
+- El volumen justifica la inversión (más de 5 horas semanales de trabajo manual)
+- Los sistemas involucrados son estables (no cambian cada mes)
+
+**Casos típicos:** conciliaciones bancarias, ingreso de facturas, generación de reportes, migración de datos entre sistemas.
+
+### Elige IA cuando:
+
+- Necesitas analizar grandes volúmenes de datos no estructurados
+- El proceso requiere clasificar, predecir o recomendar
+- Las entradas varían constantemente (diferentes formatos de facturas, distintos tipos de documentos)
+- Quieres automatizar decisiones, no solo acciones
+
+**Casos típicos:** clasificación de documentos, detección de fraude, predicción de demanda, análisis de sentimiento en comentarios.
+
+## La combinación ganadora: RPA + IA
+
+Donde realmente se obtiene valor es cuando ambas tecnologías trabajan juntas:
+
+```
+Documento PDF
+    ↓
+IA (Document Understanding) → extrae los datos
+    ↓
+RPA (UiPath) → valida, transforma y carga en el ERP
+    ↓
+IA (Modelo Predictivo) → detecta anomalías en los datos cargados
+    ↓
+RPA (UiPath) → notifica al área correspondiente
+```
+
+Esta arquitectura combina la precisión de RPA con la flexibilidad de la IA. El año pasado implementé esta combinación para un proceso de cuentas por pagar en el sector manufacturero: IA extraía datos de facturas en diferentes formatos, RPA los cargaba en SAP, y un modelo de IA adicional detectaba facturas duplicadas o con montos fuera de rango.
+
+**Resultado:** 100% de las facturas procesadas sin intervención manual, detección de anomalías en tiempo real y reducción del 60% en el tiempo de cierre mensual.
+
+## Recomendación práctica
+
+Si estás empezando tu viaje de automatización:
+
+1. **Empieza con RPA** — es más rápido de implementar, los resultados son visibles en semanas y el ROI es fácil de calcular
+2. **Identifica dónde la IA puede sumar** — procesos con documentos variables, decisiones basadas en datos históricos o volúmenes que requieren análisis
+3. **Integra ambas** — una vez que RPA está funcionando, agregar capas de IA potencia los resultados sin empezar de cero
+
+## ¿Necesitas ayuda para definir tu estrategia?
+
+No todas las empresas necesitan IA desde el día uno, y no todos los procesos son candidatos para RPA. Si quieres una opinión experta sobre por dónde empezar, conversemos sin compromiso.
+
+[Solicitar diagnóstico gratuito →](https://wa.me/573124249342?text=Hola%20Jorge%2C%20quiero%20un%20diagn%C3%B3stico%20para%20saber%20si%20necesito%20RPA%20o%20IA)
