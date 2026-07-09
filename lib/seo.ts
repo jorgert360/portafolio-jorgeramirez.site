@@ -8,7 +8,7 @@ import { site, socials } from "@/content/site";
 export const baseMetadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role}`,
+    default: `Automatización e Inteligencia Artificial · ${site.name}`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
@@ -27,12 +27,12 @@ export const baseMetadata: Metadata = {
     locale: site.locale,
     url: site.url,
     siteName: `${site.fullName} — Portfolio`,
-    title: `${site.name} — ${site.role}`,
+    title: `Automatización e Inteligencia Artificial · ${site.name}`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.role}`,
+    title: `Automatización e Inteligencia Artificial · ${site.name}`,
     description: site.description,
   },
   robots: {
