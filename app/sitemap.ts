@@ -2,11 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { projects } from "@/content/projects";
 import { posts } from "@/content/blog";
-
-const stackSlugs = [
-  "uipath", "python", "pandas", "sql", "javascript",
-  "nextjs", "powerbi", "azure", "github", "apis", "bizagi",
-];
+import { stackPages } from "@/content/stack-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -32,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${site.url}/stack`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${site.url}/blog`,
       lastModified: now,
       changeFrequency: "weekly",
@@ -39,8 +41,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const stackRoutes: MetadataRoute.Sitemap = stackSlugs.map((slug) => ({
-    url: `${site.url}/stack/${slug}`,
+  const stackRoutes: MetadataRoute.Sitemap = stackPages.map((t) => ({
+    url: `${site.url}/stack/${t.slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.7,

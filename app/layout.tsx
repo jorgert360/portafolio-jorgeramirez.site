@@ -38,6 +38,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = baseMetadata;
 
+/** ID de Google Analytics 4. Si no está definido, no se carga el script. */
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: "#030712" },
@@ -90,14 +93,18 @@ export default function RootLayout({
         <JsonLd data={[personJsonLd, websiteJsonLd]} />
         <Analytics />
         <SpeedInsights />
-        {/* Google Analytics - configurar NEXT_PUBLIC_GA_ID en .env.local */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX"}`}
-          strategy="afterInteractive"
-        />
-        <Script id="ga-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX"}', { page_path: window.location.pathname });`}
-        </Script>
+        {/* Google Analytics — solo se carga si NEXT_PUBLIC_GA_ID está definido en el entorno. */}
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaId}', { page_path: window.location.pathname });`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

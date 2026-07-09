@@ -17,8 +17,10 @@ export const baseMetadata: Metadata = {
   creator: site.fullName,
   applicationName: `${site.name} Portfolio`,
   alternates: { canonical: "/" },
+  // Verificación de Google Search Console: se emite solo si defines
+  // GOOGLE_SITE_VERIFICATION en el entorno (Vercel → Environment Variables).
   verification: {
-    google: "TU_CODIGO_DE_VERIFICACION_DE_GOOGLE_SEARCH_CONSOLE",
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
   openGraph: {
     type: "website",
@@ -45,9 +47,6 @@ export const baseMetadata: Metadata = {
     },
   },
   category: "technology",
-  other: {
-    "google-site-verification": "TU_CODIGO_DE_VERIFICACION_DE_GOOGLE_SEARCH_CONSOLE",
-  },
 };
 
 /** JSON-LD: identidad profesional (Person). */
@@ -60,7 +59,17 @@ export const personJsonLd = {
   description: site.description,
   url: site.url,
   email: `mailto:${site.email}`,
-  image: `${site.url}/opengraph-image`,
+  telephone: "+573124249342",
+  image: `${site.url}/foto-perfil.png`,
+  nationality: { "@type": "Country", name: "Colombia" },
+  knowsLanguage: ["es", "en"],
+  hasOccupation: {
+    "@type": "Occupation",
+    name: "Automation Engineer",
+    occupationalCategory: "15-1252.00",
+    skills:
+      "RPA, UiPath, Python, Inteligencia Artificial, Next.js, Integración de sistemas, APIs",
+  },
   sameAs: socials
     .filter((s) => s.platform !== "email")
     .map((s) => s.href),
@@ -78,6 +87,7 @@ export const personJsonLd = {
     addressLocality: "Bogotá",
     addressCountry: "CO",
   },
+  areaServed: { "@type": "Country", name: "Colombia" },
 };
 
 /** JSON-LD: sitio web con búsqueda. */

@@ -9,11 +9,11 @@ export const site = {
   fullName: "Jorge Luis Ramírez Trochez",
   initials: "JR",
   role: "Automation Engineer · AI Engineer",
-  url: "https://jorgeramirez.dev", // verificar dominio final
+  url: "https://www.jorgeramirez.site",
   locale: "es_CO",
   location: "Bogotá, Colombia",
   email: "jorge.ramtroz1989@gmail.com",
-  phone: "+57 300 000 0000", // verificar
+  phone: "+57 312 424 9342",
   description:
     "Construyo soluciones inteligentes mediante Automatización, Inteligencia Artificial y Desarrollo de Software. Especialista en RPA con UiPath, Python e IA.",
   keywords: [
@@ -67,8 +67,3 @@ export const socials: SocialLink[] = [
     handle: "jorge.ramtroz1989@gmail.com",
   },
 ];
-
-export const cv = {
-  es: "https://drive.google.com/uc?export=download&id=TU_GOOGLE_DRIVE_ID",
-  en: "https://drive.google.com/uc?export=download&id=TU_GOOGLE_DRIVE_ID_EN",
-} as const;

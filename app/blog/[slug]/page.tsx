@@ -58,6 +58,7 @@ export default async function BlogPostPage({
       "@type": "BlogPosting",
       headline: post.title,
       description: post.description,
+      image: `${site.url}/opengraph-image`,
       datePublished: post.date,
       dateModified: post.date,
       inLanguage: "es",

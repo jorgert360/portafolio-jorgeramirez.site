@@ -86,7 +86,7 @@ export default function OpengraphImage() {
             color: "#64748b",
           }}
         >
-          <div style={{ display: "flex" }}>jorgeramirez.dev</div>
+          <div style={{ display: "flex" }}>jorgeramirez.site</div>
           <div style={{ display: "flex" }}>RPA · IA · Software</div>
         </div>
       </div>
