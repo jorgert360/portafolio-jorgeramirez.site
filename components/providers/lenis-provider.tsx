@@ -1,7 +1,23 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
+import { ReactLenis, useLenis } from "lenis/react";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
+function ScrollToTop() {
+  const lenis = useLenis();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, lenis]);
+
+  return null;
+}
 
 /**
  * Smooth scroll global con Lenis.
@@ -25,6 +41,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       root
       options={{ lerp: 0.1, smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1.5 }}
     >
+      <ScrollToTop />
       {children}
     </ReactLenis>
   );

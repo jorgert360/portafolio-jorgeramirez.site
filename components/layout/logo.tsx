@@ -26,7 +26,7 @@ export function Logo({
         />
       </span>
       {showName && (
-        <span className="hidden text-sm font-semibold tracking-tight sm:inline">
+        <span className="hidden whitespace-nowrap text-sm font-semibold tracking-tight sm:inline">
           {site.name}
         </span>
       )}

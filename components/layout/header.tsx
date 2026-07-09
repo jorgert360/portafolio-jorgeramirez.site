@@ -48,9 +48,9 @@ export function Header() {
     href.startsWith("#") ? (isHome ? href : `/${href}`) : href;
 
   const onHashClick = (e: React.MouseEvent, href: string) => {
+    setOpen(false);
     if (!href.startsWith("#") || !isHome) return;
     e.preventDefault();
-    setOpen(false);
     const target = document.querySelector(href);
     if (!target) return;
     if (lenis) lenis.scrollTo(target as HTMLElement, { offset: -90 });
@@ -79,7 +79,7 @@ export function Header() {
                     href={hrefFor(item.href)}
                     onClick={(e) => onHashClick(e, item.href)}
                     className={cn(
-                      "relative rounded-full px-3.5 py-2 text-sm transition-colors",
+                      "relative whitespace-nowrap rounded-full px-3.5 py-2 text-sm transition-colors",
                       isActive
                         ? "text-foreground"
                         : "text-muted-foreground hover:text-foreground",

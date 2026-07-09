@@ -14,7 +14,6 @@ import { techLogos } from "@/content/hero-tech";
 
 /** Posición de la esfera DENTRO de la imagen del robot (% del contenedor). */
 const SPHERE = { left: "34%", top: "40%", size: "26%" };
-const TITLE_TOP = "10%";
 
 const sideTech = [
   { icon: Bot, label: "UiPath", sub: "" },
@@ -133,7 +132,7 @@ export function Hero() {
             sizes="(max-width: 1024px) 100vw, 72vw"
             className="object-contain [filter:drop-shadow(0_18px_50px_rgba(59,130,246,0.5))_drop-shadow(0_0_90px_rgba(139,92,246,0.35))] [mask-image:radial-gradient(ellipse_95%_92%_at_50%_47%,#000_72%,transparent)]"
           />
-          <p className="absolute -translate-x-1/2 text-center font-display text-[18px] font-bold uppercase tracking-[0.28em] text-[#22d3ee]" style={{ top: TITLE_TOP, left: "42%", textShadow: "0 0 14px rgba(34,211,238,.9)" }}>
+          <p className="absolute left-[30%] -translate-x-1/2 text-center font-display text-[12px] font-bold uppercase tracking-[0.28em] text-[#22d3ee] lg:text-[23px] lg:left-[47%] lg:top-[7%]" style={{ bottom: "6%", textShadow: "0 0 14px rgba(34,211,238,.9)" }}>
             Proyectos destacados
           </p>
           <div className="absolute -translate-x-1/2 -translate-y-1/2" style={{ top: SPHERE.top, left: SPHERE.left, width: SPHERE.size, perspective: "800px" }}>
