@@ -209,6 +209,158 @@ export const projects: Project[] = [
     accent: "#8B5CF6",
   },
   {
+    slug: "cvautomatic",
+    title: "CV Automatic",
+    category: "Optimización de CV con IA",
+    type: "ai",
+    featured: true,
+    year: "2026",
+    summary: "Herramienta con IA que adapta una hoja de vida a cada oferta laboral para superar los filtros ATS en menos de un minuto.",
+    description:
+      "CV Automatic es un servicio web que usa inteligencia artificial para alinear una hoja de vida con una vacante específica. El usuario sube su CV en PDF y la oferta en PDF, DOCX o TXT; la IA compara ambos documentos, identifica palabras clave, habilidades y experiencia relevantes, y genera una versión optimizada lista para sistemas ATS y para reclutadores humanos.",
+    tech: ["Next.js", "React", "TypeScript", "Python", "LLM APIs", "Vercel"],
+    tags: ["IA", "LLM", "ATS", "Automatización"],
+    problem:
+      "Muchas hojas de vida son descartadas por los sistemas de seguimiento de candidatos (ATS) antes de llegar a un reclutador, simplemente porque no contienen las palabras clave o la estructura que la vacante exige. Adaptar manualmente el CV a cada oferta es lento y la mayoría de candidatos no sabe cómo hacerlo.",
+    solution:
+      "Construí un flujo de punta a punta: carga de documentos, extracción de texto, análisis comparativo con un modelo de lenguaje y generación de un CV reescrito con tono profesional y estructura amigable para ATS. Cada postulación obtiene su propia versión optimizada, sin límite de usos y sin costo para el usuario.",
+    architecture:
+      "Frontend en Next.js con carga de archivos PDF/DOCX/TXT, procesamiento del lado del servidor para extracción de texto, orquestación de prompts contra un LLM para el análisis y la reescritura, consentimiento explícito de tratamiento de datos y eliminación automática de los documentos tras el procesamiento.",
+    results: [
+      "Generación de un CV optimizado en aproximadamente 30 segundos a 1 minuto.",
+      "Optimizaciones ilimitadas: un CV distinto para cada vacante.",
+      "Servicio gratuito para candidatos de cualquier nivel, sector y país.",
+      "Privacidad por diseño: los documentos se eliminan después del procesamiento.",
+    ],
+    lessons: [
+      "El valor de un producto con IA está en el flujo completo, no solo en el prompt.",
+      "La privacidad y el consentimiento deben diseñarse desde el inicio cuando se procesan datos personales.",
+      "Reducir la fricción de entrada (subir dos archivos y listo) es clave para la adopción.",
+    ],
+    metrics: [
+      { value: "<1 min", label: "Por optimización" },
+      { value: "∞", label: "Optimizaciones" },
+      { value: "0", label: "Costo para el usuario" },
+    ],
+    links: { live: "https://cvautomatic.online/" },
+    cover: "/projects/cvautomatic/cover.webp",
+    accent: "#8B5CF6",
+  },
+  {
+    slug: "gametroz",
+    title: "Gametroz",
+    category: "Portal de juegos y herramientas online",
+    type: "web",
+    featured: true,
+    year: "2026",
+    summary: "Portal gratuito de juegos en el navegador, herramientas online y apps útiles, sin instalaciones ni registro.",
+    description:
+      "Gametroz reúne en un solo sitio juegos de navegador organizados por categoría (acción, aventura, arcade, casual, puzzle, carreras y deportes), utilidades online como contador de palabras, formateador JSON o calculadora de porcentajes, un directorio de apps con descargas oficiales y guías editoriales.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    tags: ["Next.js", "SEO", "Juegos", "Herramientas"],
+    problem:
+      "Los portales de juegos y utilidades online suelen ser lentos, saturados de publicidad intrusiva y con navegación confusa, lo que hace difícil encontrar rápidamente un juego o una herramienta concreta.",
+    solution:
+      "Diseñé un portal ligero que combina entretenimiento y utilidades: catálogo de juegos por categoría con secciones de tendencias, populares y novedades; herramientas que funcionan directamente en el navegador; y contenido editorial orientado a búsquedas para atraer tráfico orgánico.",
+    architecture:
+      "Next.js con App Router y optimización de imágenes, catálogo de juegos integrado desde un proveedor externo, herramientas implementadas 100% del lado del cliente, páginas de categoría y guías optimizadas para SEO, y políticas editoriales, de privacidad y términos para cumplimiento.",
+    results: [
+      "7 categorías de juegos con rankings de tendencias y novedades.",
+      "8 herramientas online gratuitas que funcionan sin instalación.",
+      "Directorio de apps con enlaces de descarga oficiales.",
+      "Guías editoriales que alimentan el posicionamiento orgánico.",
+    ],
+    lessons: [
+      "Combinar contenido utilitario y entretenimiento amplía los puntos de entrada desde buscadores.",
+      "Las herramientas del lado del cliente escalan sin costo de servidor.",
+      "Una política editorial clara genera confianza en portales de contenido.",
+    ],
+    metrics: [
+      { value: "7", label: "Categorías de juegos" },
+      { value: "8", label: "Herramientas online" },
+      { value: "0", label: "Instalaciones" },
+    ],
+    links: { live: "https://gametroz.online/" },
+    cover: "/projects/gametroz/cover.webp",
+    accent: "#06B6D4",
+  },
+  {
+    slug: "altiora-inmobiliaria",
+    title: "Altiora Inmobiliaria",
+    category: "Plataforma inmobiliaria",
+    type: "web",
+    featured: true,
+    year: "2026",
+    summary: "Plataforma inmobiliaria bilingüe para compra, venta y arriendo de propiedades en Cartago y el norte del Valle del Cauca.",
+    description:
+      "Sitio web de Altiora Construcciones e Inmobiliaria S.A.S. con catálogo de propiedades en venta y arriendo, búsqueda con filtros avanzados, calculadora de crédito hipotecario, formulario de valoración para propietarios, blog y guía de zonas de Cartago. Disponible en español e inglés.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Cloudflare R2", "Vercel"],
+    tags: ["Next.js", "SEO", "i18n", "Inmobiliaria"],
+    problem:
+      "La inmobiliaria dependía de redes sociales y contactos informales para mostrar su inventario, sin un canal propio que presentara precios claros, filtrara propiedades y convirtiera visitas en contactos calificados.",
+    solution:
+      "Construí una plataforma con búsqueda por ubicación, tipo de inmueble, rango de precio y habitaciones; fichas de propiedad con precios visibles; contacto directo por WhatsApp; calculadora hipotecaria para estimar capacidad de compra; y un formulario de valoración para captar propietarios que desean vender.",
+    architecture:
+      "Next.js con App Router e internacionalización por rutas (es-CO / en-US), imágenes servidas desde Cloudflare R2 con optimización de Next.js, URLs descriptivas por propiedad para SEO, y enlaces directos de WhatsApp, teléfono y correo para minimizar la fricción de contacto.",
+    results: [
+      "Catálogo propio de propiedades en venta y arriendo con precios visibles.",
+      "Captación de propietarios mediante el formulario de valoración.",
+      "Experiencia bilingüe para compradores e inversionistas extranjeros.",
+      "Contacto inmediato con asesores por WhatsApp.",
+    ],
+    lessons: [
+      "En el sector inmobiliario la transparencia de precios genera confianza y acelera la decisión.",
+      "Herramientas como la calculadora hipotecaria convierten visitantes curiosos en prospectos.",
+      "Un almacenamiento de imágenes en R2 reduce costos sin sacrificar rendimiento.",
+    ],
+    metrics: [
+      { value: "2", label: "Idiomas" },
+      { value: "5", label: "Tipos de inmueble" },
+      { value: "100%", label: "Responsive" },
+    ],
+    links: { live: "https://altioraimobiliaria.online/es-CO" },
+    cover: "/projects/altiora-inmobiliaria/cover.webp",
+    accent: "#3B82F6",
+  },
+  {
+    slug: "fundacion-proposito-posible",
+    title: "Fundación Propósito Posible",
+    category: "Sitio web de fundación social",
+    type: "web",
+    featured: true,
+    year: "2026",
+    summary: "Sitio institucional para una fundación sin ánimo de lucro de Cartago que comunica su impacto social, proyectos y canales de donación.",
+    description:
+      "Plataforma web de la Fundación Propósito Posible, entidad sin ánimo de lucro fundada en 2013 en Cartago, Valle del Cauca. Presenta su misión, seis líneas de acción, proyectos destacados, galería filtrable, página de donaciones, sección de transparencia institucional y canales de contacto.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    tags: ["Next.js", "SEO", "ONG", "Impacto social"],
+    problem:
+      "La fundación no contaba con un canal digital propio que transmitiera su trayectoria, su trabajo comunitario y su información institucional, lo que dificultaba atraer donantes, voluntarios y aliados.",
+    solution:
+      "Diseñé un sitio institucional que organiza el trabajo de la fundación en líneas de acción y proyectos, muestra evidencia visual con una galería filtrable, facilita las donaciones y publica la información de transparencia exigida a una ESAL.",
+    architecture:
+      "Next.js con App Router y optimización de imágenes, galería con filtros por categoría, páginas dedicadas para donaciones y transparencia, integración con WhatsApp, correo y teléfono, y enlaces a redes sociales (Facebook, Instagram, YouTube y TikTok).",
+    results: [
+      "Presencia digital institucional para una fundación con trayectoria desde 2013.",
+      "Comunicación clara de seis líneas de acción y sus proyectos.",
+      "Canal directo de donaciones y contacto.",
+      "Sección de transparencia que fortalece la confianza de donantes y entidades.",
+    ],
+    lessons: [
+      "En organizaciones sociales, la evidencia visual del trabajo comunica más que cualquier texto.",
+      "La transparencia institucional es un factor decisivo para atraer donantes.",
+      "Un diseño cálido y accesible acerca la fundación a la comunidad que atiende.",
+    ],
+    metrics: [
+      { value: "2013", label: "Año de fundación" },
+      { value: "6", label: "Líneas de acción" },
+      { value: "4", label: "Proyectos destacados" },
+    ],
+    links: { live: "https://fundacionproppositoposible.com/" },
+    cover: "/projects/fundacion-proposito-posible/cover.webp",
+    accent: "#8B5CF6",
+  },
+  {
     slug: "robot-alejo",
     title: "Robot Alejo 2.0",
     category: "Automatización RPA",
